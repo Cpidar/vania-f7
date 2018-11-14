@@ -13,6 +13,7 @@ function resolvePath(dir) {
 module.exports = {
   mode: 'development',
   entry: [
+    'babel-polyfill',
     './src/app.js'
   ],
   output: {
@@ -75,6 +76,14 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'less-loader',
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
         ],
       },
       {
